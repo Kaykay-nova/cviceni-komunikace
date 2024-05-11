@@ -12,6 +12,10 @@ Krok 2: Do prop `onSelectName` předejte funkci, která nastaví jméno do stavu
 
 export const Ukol2 = () => {
   const [jmeno, setJmeno] = useState('Jirka');
+
+  const handleClick = (label) => {
+    setJmeno(label)
+  };
   
   return (
     <>
@@ -19,10 +23,10 @@ export const Ukol2 = () => {
         <strong>{jmeno}</strong>
       </p>
       <div className="button-group">
-        <IconButton label="Jirka" />
-        <IconButton label="Honza" />
-        <IconButton label="Tomáš" />
-        <IconButton label="Šimon" />
+        <IconButton onSelectName={handleClick} label="Jirka" />
+        <IconButton onSelectName={handleClick} label="Honza" />
+        <IconButton onSelectName={handleClick} label="Tomáš" />
+        <IconButton onSelectName={handleClick} label="Šimon" />
       </div>
     </>
   );

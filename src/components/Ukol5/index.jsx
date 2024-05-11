@@ -1,4 +1,5 @@
 import { InputField } from "./InputField";
+import { useState } from "react";
 
 /*
 Zadání: Vyřešte tento úkol podobně jako předchozí, pouze s tím rozdílem, že tentokrát budete mít
@@ -7,11 +8,22 @@ Zadání: Vyřešte tento úkol podobně jako předchozí, pouze s tím rozdíle
 */
 
 export const Ukol5 = () => {
+  const [firstName, setFirstName] = useState('');
+  const [surname, setSurname] = useState('');
+
+  const handleName = (value) => {
+    setFirstName(value);
+  }
+
+  const handleSurname = (value) => {
+    setSurname(value);
+  }
+
   return (
     <>
-      <p>Jméno: Patrik Pokoutník</p>
-      <InputField label="Jméno" type="text" />
-      <InputField label="Příjmení" type="text" />
+      <p>Jméno: {firstName} {surname}</p>
+      <InputField label="Jméno" type="text" onValueChange={handleName}/>
+      <InputField label="Příjmení" type="text" onValueChange={handleSurname}/>
     </>
   );
 };

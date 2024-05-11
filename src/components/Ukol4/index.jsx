@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { InputField } from "./InputField";
 
 /*
@@ -14,10 +15,16 @@ Krok 4: Vyzkoušejte si obousměrný binding. Do komponenty `InputField` přidej
 */
 
 export const Ukol4 = () => {
+  const [name, setName] = useState('');
+
+  const handleClick = (value) => {
+    setName(value);
+  }
+
   return (
     <>
-      <p>Jméno:</p>
-      <InputField label="Jméno" type="text" />
+      <p>Jméno: {name}</p>
+      <InputField onValueChange={handleClick} label="Jméno" type="text" />
     </>
   );
 };
